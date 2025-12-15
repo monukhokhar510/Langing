@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Lifafa OP – Advanced Landing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  background:#05070f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+}
+
+/* GRID BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.08) 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:gridMove 20s linear infinite;
+  z-index:-2;
+}
+@keyframes gridMove{
+  to{transform:translateY(40px)}
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle, rgba(0,255,255,.12), transparent 60%);
+  z-index:-1;
+}
+
+/* CARD */
+.card{
+  width:94vw;
+  max-width:850px;
+  padding:40px 30px;
+  border-radius:24px;
+  background:linear-gradient(145deg, rgba(0,255,255,.18), rgba(255,0,255,.12));
+  backdrop-filter:blur(22px);
+  box-shadow:0 0 60px rgba(0,255,255,.4);
+  text-align:center;
+  position:relative;
+  animation:cardEnter 1s ease;
+}
+@keyframes cardEnter{
+  from{opacity:0;transform:scale(.9) translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+/* TEXT */
+h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:2.4rem;
+  text-shadow:0 0 18px cyan;
+}
+.subtitle{
+  margin:14px 0 28px;
+  opacity:.85;
+}
+
+/* BUTTONS */
+.main-links{
+  display:grid;
+  gap:16px;
+}
+
+.btn{
+  padding:16px;
+  border-radius:15px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  letter-spacing:1px;
+  position:relative;
+  overflow:hidden;
+  transition:.4s ease;
+}
+
+/* SHINE EFFECT */
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.6), transparent);
+  transform:translateX(-120%);
+  transition:.6s;
+}
+.btn:hover::before{
+  transform:translateX(120%);
+}
+
+.btn:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 0 30px rgba(0,255,255,.6);
+}
+
+.telegram{background:linear-gradient(135deg,#0088cc,#00e5ff)}
+.website{background:linear-gradient(135deg,#00c853,#b2ff59)}
+.download{background:linear-gradient(135deg,#7c4dff,#b388ff)}
+.hack{background:linear-gradient(135deg,#ff6f00,#ffca28)}
+
+/* SOCIAL LOGOS */
+.social{
+  display:flex;
+  justify-content:center;
+  gap:26px;
+  margin-top:30px;
+}
+
+.social a{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:float 3s ease-in-out infinite;
+}
+
+.social img{
+  width:36px;
+  height:36px;
+  filter:drop-shadow(0 0 8px rgba(0,255,255,.8));
+  transition:.4s;
+}
+
+.social a:hover img{
+  transform:rotate(12deg) scale(1.25);
+  filter:drop-shadow(0 0 16px cyan);
+}
+
+@keyframes float{
+  50%{transform:translateY(-8px)}
+}
+
+/* FOOTER */
+footer{
+  margin-top:26px;
+  font-size:.75rem;
+  opacity:.6;
+}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  z-index:9999;
+}
+.popup.show{
+  opacity:1;
+  pointer-events:auto;
+}
+.popup-box{
+  width:90%;
+  max-width:380px;
+  padding:28px;
+  border-radius:20px;
+  text-align:center;
+  background:linear-gradient(145deg, rgba(0,255,255,.3), rgba(255,0,255,.25));
+  backdrop-filter:blur(18px);
+  box-shadow:0 0 45px cyan;
+}
+.popup-box button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-weight:700;
+  background:linear-gradient(135deg,#00ffff,#ff00ff);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>LIFAFA OP</h1>
+  <div class="subtitle">Ultra Advanced Ha*k Panel</div>
+
+  <div class="main-links">
+    <a href="https://t.me/+gE0tjHvqT3ZkOTY1" target="_blank" class="btn telegram">✈ Telegram</a>
+    <a href="https://youtu.be/efbKUmeY-BY" target="_blank" class="btn website">🧠 How to use Ha*k</a>
+    <a href="https://speedwin.live/app.apk" target="_blank" class="btn download" id="downloadBtn">⬇ Download Speedwin</a>
+    <a href="https://monukhokhar510.github.io/speedwin/" target="_blank" class="btn hack" id="hackBtn">⚡ Premium Ha*k</a>
+  </div>
+
+  <!-- TRANSPARENT REAL LOGOS -->
+  <div class="social">
+    <a href="https://www.instagram.com/lifafa_op" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+    </a>
+    <a href="https://youtube.com/@lifafa_op" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+    </a>
+  </div>
+
+  <footer>© 2025 LIFAFA OP | All Rights Reserved</footer>
+</div>
+
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <h2>⚠ Action Required</h2>
+    <p>Download<b> Speedwin</b><br>Then use Ha*k</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<script>
+let downloaded=false;
+
+document.getElementById("downloadBtn").onclick=()=>{downloaded=true;}
+
+document.getElementById("hackBtn").onclick=(e)=>{
+  if(!downloaded){
+    e.preventDefault();
+    document.getElementById("popup").classList.add("show");
+  }
+}
+
+function closePopup(){
+  document.getElementById("popup").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
